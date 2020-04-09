@@ -1,0 +1,21 @@
+$colors: (
+  blue: #1f2ef5,
+  pink: #f9e8d5,
+  black: #000,
+  white: #fff
+);
+
+$theme-colors: (
+  primary: color(blue),
+  secondary: color(pink),
+  dark: color(black),
+  light: color(white)
+);
+
+$grays: (
+  100: darken(color(white), 5%),
+  200: darken(color(white), 10%),
+  300: darken(color(white), 15%),
+  400: darken(color(white), 20%),
+  500: darken(color(white), 40%)
+);

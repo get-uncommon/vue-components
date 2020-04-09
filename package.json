@@ -1,0 +1,49 @@
+{
+  "name": "@get-uncommon/vue-components",
+  "description": "UNCOMMON Vue.js components",
+  "version": "0.0.1-beta",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "bundle": "vue-cli-service build --target lib --name components ./src/library.js",
+    "lint": "vue-cli-service lint",
+    "stylelint": "stylelint **/*.scss && stylelint **/*.vue"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:get-uncommon/vue-components.git"
+  },
+  "author": "Rutger Bakker <rutger@getuncommon.digital>",
+  "main": "./dist/components.common.js",
+  "files": [
+    "dist/*",
+    "src/*",
+    "package.json"
+  ],
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.3.0",
+    "@vue/cli-plugin-eslint": "^4.3.0",
+    "@vue/cli-service": "^4.3.0",
+    "@vue/eslint-config-airbnb": "^5.0.2",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "fibers": "^4.0.2",
+    "sass": "^1.26.3",
+    "sass-loader": "^8.0.2",
+    "stylelint": "^13.3.2",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-order": "^4.0.0",
+    "stylelint-processor-html": "^1.0.0",
+    "stylelint-scss": "^3.17.0",
+    "stylelint-webpack-plugin": "^1.2.3",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "dependencies": {
+    "reset-css": "^5.0.1",
+    "vue": "^2.6.11"
+  }
+}

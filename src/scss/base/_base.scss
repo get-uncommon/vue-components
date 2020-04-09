@@ -1,0 +1,17 @@
+body {
+  font-family: $font-family-sans-serif;
+  background-color: $body-bg;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Reset button
+button {
+  -webkit-appearance: none;
+  padding: 0;
+  font-size: 100%;
+  background: none;
+  border: 0;
+
+  // &:focus { outline: none; }
+}

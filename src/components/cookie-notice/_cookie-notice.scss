@@ -1,0 +1,52 @@
+/* Cookie Notice */
+
+:root {
+  --cookie-notice-display: flex;
+  --cookie-notice-position: fixed;
+  --cookie-notice-top: auto;
+  --cookie-notice-right: #{rem(15px)};
+  --cookie-notice-bottom: #{rem(15px)};
+  --cookie-notice-left: auto;
+  --cookie-notice-z-index: 999;
+  --cookie-notice-width: 100%;
+  --cookie-notice-max-with: #{rem(850px)};
+  --cookie-notice-padding: #{rem(20px)};
+  --cookie-notice-border-radius: #{rem(4px)};
+  --cookie-notice-background: #{theme-color(light)};
+  --cookie-notice-box-shadow: 0 0 #{rem(15px)} rgba(0, 0, 0, 0.1);
+  --cookie-notice-transition: all 300ms ease 150ms;
+  --cookie-notice-transform: translate3d(0, 0, 0);
+  --cookie-notice-transform-hidden: translate3d(0, 100%, 0);
+}
+
+.cookie-notice {
+  display: var(--cookie-notice-display);
+  position: var(--cookie-notice-position);
+  top: var(--cookie-notice-top);
+  right: var(--cookie-notice-right);
+  bottom: var(--cookie-notice-bottom);
+  left: var(--cookie-notice-left);
+  z-index: var(--cookie-notice-z-index);
+  width: var(--cookie-notice-width);
+  max-width: var(--cookie-notice-max-with);
+  padding: var(--cookie-notice-padding);
+  background-color: var(--cookie-notice-background);
+  border-radius: var(--cookie-notice-border-radius);
+  box-shadow: var(--cookie-notice-box-shadow);
+  opacity: 1;
+  transition: var(--cookie-notice-transition);
+  transform: var(--cookie-notice-transform);
+
+  &__content { margin-right: rem(30px); }
+
+  &__btngroup {
+    display: flex;
+    flex-shrink: 0;
+  }
+
+  &.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+    transform: var(--cookie-notice-transform-hidden);
+  }
+}
