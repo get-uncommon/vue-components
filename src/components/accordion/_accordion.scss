@@ -1,0 +1,14 @@
+/* Accordion */
+
+:root {
+  --accordion-display: block;
+}
+
+.accordion {
+  display: var(--accordion-display);
+
+  &__body {
+    max-height: 0;
+    overflow: hidden;
+  }
+}
