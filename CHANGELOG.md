@@ -6,14 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.0.0] - [in progress]
+## [0.0.1-beta] - 2020-04-16
 ### Added
-- [in progress]
+- First beta version of the Vue component library
+- Added `CookieNotice` component
 
-### Changed
-- [in progress]
-
-### Removed
-- [in progress]
-
-[Unreleased]: https://github.com/get-uncommon/vue-components/compare/v0.0.0...HEAD
+[Unreleased]: https://github.com/get-uncommon/vue-components/compare/v0.0.1-beta...HEAD
+[0.0.1-beta]: https://github.com/get-uncommon/vue-components/releases/tag/v0.0.1-beta

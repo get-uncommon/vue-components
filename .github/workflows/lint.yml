@@ -1,0 +1,31 @@
+name: Lint files
+
+on: pull_request
+
+jobs:
+  lint:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: 🤘 Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+        # always-auth: true
+        # registry-url: https://npm.pkg.github.com
+        # scope: '@rutgerbakker95'
+    - name: 📦 Install dependencies
+      run: yarn install --frozen-lockfile --update-checksums
+      env:
+        # NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+        CI: true
+    - name: 🏃‍♂️ Run Eslint
+      run: yarn run lint
+    - name: 🏃‍♂️ Run Stylelint
+      run: yarn run stylelint
