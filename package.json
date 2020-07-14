@@ -19,7 +19,8 @@
   "files": [
     "dist/*",
     "src/*",
-    "package.json"
+    "package.json",
+    "README.md"
   ],
   "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "devDependencies": {
