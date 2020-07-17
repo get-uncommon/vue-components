@@ -11,12 +11,16 @@
 export default {
   name: 'AccordionTitle',
 
+  data() {
+    return {
+      unCollapsed: true,
+    };
+  },
+
   methods: {
-    toggle(event) {
-      this.$parent.$emit('ontoggle', {
-        event,
-        index: this.$parent.index,
-      });
+    toggle() {
+      this.unCollapsed = !this.unCollapsed;
+      this.$parent.$emit('ontoggle', this.unCollapsed);
     },
   },
 };

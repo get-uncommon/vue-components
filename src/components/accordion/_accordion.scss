@@ -7,6 +7,16 @@
 .accordion {
   display: var(--accordion-display);
 
+  &__title {
+    display: block;
+    cursor: pointer;
+    background: #f4f4f4;
+  }
+
+  &__item.is-active &__title {
+    background: #000;
+  }
+
   &__body {
     max-height: 0;
     overflow: hidden;

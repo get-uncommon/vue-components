@@ -1,9 +1,8 @@
 <template>
   <div
-    :id="`${name}-item-${index}`"
     ref="item"
     class="accordion__item"
-    :class="{ 'is-active' : item.active }"
+    :class="{ 'is-active' : !unCollapsed }"
   >
     <slot />
   </div>
@@ -13,31 +12,16 @@
 export default {
   name: 'AccordionItem',
 
-  props: {
-    index: {
-      type: Number,
-      required: true,
-    },
-    name: {
-      type: String,
-      required: true,
-    },
-    item: {
-      type: Object,
-      default: () => {},
-    },
+  data() {
+    return {
+      unCollapsed: true,
+    };
   },
 
-  // mounted() {
-  //   this.$on('ontoggle', (data) => {
-  //     console.log(data);
-  //   });
-  // },
-
-  methods: {
-    // toggle() {
-    //   console.log('toggle');
-    // },
+  mounted() {
+    this.$on('ontoggle', (state) => {
+      this.unCollapsed = state;
+    });
   },
 };
 </script>

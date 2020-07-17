@@ -23,13 +23,22 @@ export default {
   },
 
   mounted() {
-    this.$parent.$on('ontoggle', () => {
-      gsap.to(this.$refs.body, {
-        duration: 1,
-        ease: 'power4.out',
-        force3D: true,
-        maxHeight: this.$refs.body.scrollHeight,
-      });
+    this.$parent.$on('ontoggle', (state) => {
+      if (!state) {
+        gsap.to(this.$refs.body, {
+          duration: 1,
+          ease: 'power4.out',
+          force3D: true,
+          maxHeight: this.$refs.body.scrollHeight,
+        });
+      } else {
+        gsap.to(this.$refs.body, {
+          duration: 1,
+          ease: 'power4.out',
+          force3D: true,
+          maxHeight: 0,
+        });
+      }
     });
   },
 };
