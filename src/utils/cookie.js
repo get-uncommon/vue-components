@@ -8,7 +8,8 @@ export default class Cookie {
       exdays: 365,
       path: '/',
       domain: '',
-      sameSite: 'Lax',
+      sameSite: 'Strict',
+      HttpOnly: 'Secure',
     };
     this.settings = { ...defaultSettings, ...settings };
 
@@ -16,7 +17,6 @@ export default class Cookie {
     d.setTime(d.getTime() + (this.settings.exdays * 24 * 60 * 60 * 1000));
     let cookieValue = `${cookieName}=${cvalue};expires=${d.toUTCString()};path=${this.settings.path};SameSite=${this.settings.sameSite}`;
     cookieValue += this.settings.domain.length > 0 ? `;domain=${this.settings.domain}` : '';
-
     document.cookie = cookieValue;
   }
 

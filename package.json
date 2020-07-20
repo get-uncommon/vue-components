@@ -22,7 +22,9 @@
     "package.json",
     "README.md"
   ],
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.4.6",
     "@vue/cli-plugin-eslint": "^4.4.6",
@@ -44,6 +46,7 @@
     "vue-template-compiler": "^2.6.11"
   },
   "dependencies": {
+    "gsap": "^3.4.1",
     "reset-css": "^5.0.1",
     "vue": "^2.6.11"
   }
