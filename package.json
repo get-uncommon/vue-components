@@ -25,7 +25,7 @@
   "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.3.0",
-    "@vue/cli-plugin-eslint": "^4.3.0",
+    "@vue/cli-plugin-eslint": "^4.4.6",
     "@vue/cli-service": "^4.4.6",
     "@vue/eslint-config-airbnb": "^5.1.0",
     "babel-eslint": "^10.1.0",
