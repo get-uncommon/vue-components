@@ -1,52 +1,143 @@
 /* Cookie Notice */
 
+// Notice box
+$vc-cookie-notice-display: block !default;
+$vc-cookie-notice-position: fixed !default;
+$vc-cookie-notice-top: auto !default;
+$vc-cookie-notice-right: rem(15px) !default;
+$vc-cookie-notice-bottom: rem(15px) !default;
+$vc-cookie-notice-left: auto !default;
+$vc-cookie-notice-z-index: 999 !default;
+$vc-cookie-notice-width: calc(100% - #{rem(70px)}) !default;
+$vc-cookie-notice-max-with: rem(850px) !default;
+$vc-cookie-notice-padding: rem(20px) !default;
+$vc-cookie-notice-color: theme-color(dark) !default;
+$vc-cookie-notice-border-radius: rem(4px) !default;
+$vc-cookie-notice-background: theme-color(light) !default;
+$vc-cookie-notice-box-shadow: 0 0 rem(15px) rgba(0, 0, 0, 0.1) !default;
+
+// Input checkbox
+$vc-cookie-notice-check-size: rem(20px) !default;
+$vc-cookie-notice-check-margin: rem(10px) !default;
+$vc-cookie-notice-check-background: #f4f4f4 !default;
+$vc-cookie-notice-check-background-active: #000 !default;
+$vc-cookie-notice-check-border: rem(1px) solid #4b4b4b !default;
+$vc-cookie-notice-check-border-radius: 0 !default;
+
 :root {
-  --cookie-notice-display: flex;
-  --cookie-notice-position: fixed;
-  --cookie-notice-top: auto;
-  --cookie-notice-right: #{rem(15px)};
-  --cookie-notice-bottom: #{rem(15px)};
-  --cookie-notice-left: auto;
-  --cookie-notice-z-index: 999;
-  --cookie-notice-width: 100%;
-  --cookie-notice-max-with: #{rem(850px)};
-  --cookie-notice-padding: #{rem(20px)};
-  --cookie-notice-border-radius: #{rem(4px)};
-  --cookie-notice-background: #{theme-color(light)};
-  --cookie-notice-box-shadow: 0 0 #{rem(15px)} rgba(0, 0, 0, 0.1);
-  --cookie-notice-transition: all 300ms ease 150ms;
-  --cookie-notice-transform: translate3d(0, 0, 0);
-  --cookie-notice-transform-hidden: translate3d(0, 100%, 0);
+  --vc-cookie-notice-display: #{$vc-cookie-notice-display};
+  --vc-cookie-notice-position: #{$vc-cookie-notice-position};
+  --vc-cookie-notice-top: #{$vc-cookie-notice-top};
+  --vc-cookie-notice-right: #{$vc-cookie-notice-right};
+  --vc-cookie-notice-bottom: #{$vc-cookie-notice-bottom};
+  --vc-cookie-notice-left: #{$vc-cookie-notice-left};
+  --vc-cookie-notice-z-index: #{$vc-cookie-notice-z-index};
+  --vc-cookie-notice-width: #{$vc-cookie-notice-width};
+  --vc-cookie-notice-max-with: #{$vc-cookie-notice-max-with};
+  --vc-cookie-notice-padding: #{$vc-cookie-notice-padding};
+  --vc-cookie-notice-color: #{$vc-cookie-notice-color};
+  --vc-cookie-notice-border-radius: #{$vc-cookie-notice-border-radius};
+  --vc-cookie-notice-background: #{$vc-cookie-notice-background};
+  --vc-cookie-notice-box-shadow: #{$vc-cookie-notice-box-shadow};
+  --vc-cookie-notice-check-size: #{$vc-cookie-notice-check-size};
+  --vc-cookie-notice-check-margin: #{$vc-cookie-notice-check-margin};
+  --vc-cookie-notice-check-background: #{$vc-cookie-notice-check-background};
+  --vc-cookie-notice-check-background-active: #{$vc-cookie-notice-check-background-active};
+  --vc-cookie-notice-check-border: #{$vc-cookie-notice-check-border};
+  --vc-cookie-notice-check-border-radius: #{$vc-cookie-notice-check-border-radius};
 }
 
-.cookie-notice {
-  display: var(--cookie-notice-display);
-  position: var(--cookie-notice-position);
-  top: var(--cookie-notice-top);
-  right: var(--cookie-notice-right);
-  bottom: var(--cookie-notice-bottom);
-  left: var(--cookie-notice-left);
-  z-index: var(--cookie-notice-z-index);
-  width: var(--cookie-notice-width);
-  max-width: var(--cookie-notice-max-with);
-  padding: var(--cookie-notice-padding);
-  background-color: var(--cookie-notice-background);
-  border-radius: var(--cookie-notice-border-radius);
-  box-shadow: var(--cookie-notice-box-shadow);
-  opacity: 1;
-  transition: var(--cookie-notice-transition);
-  transform: var(--cookie-notice-transform);
+.vc-cookie-notice {
+  display: var(--vc-cookie-notice-display);
+  position: var(--vc-cookie-notice-position);
+  top: var(--vc-cookie-notice-top);
+  right: var(--vc-cookie-notice-right);
+  bottom: var(--vc-cookie-notice-bottom);
+  left: var(--vc-cookie-notice-left);
+  z-index: var(--vc-cookie-notice-z-index);
+  width: var(--vc-cookie-notice-width);
+  max-width: var(--vc-cookie-notice-max-with);
+  padding: var(--vc-cookie-notice-padding);
+  color: var(--vc-cookie-notice-color);
+  background-color: var(--vc-cookie-notice-background);
+  border-radius: var(--vc-cookie-notice-border-radius);
+  box-shadow: var(--vc-cookie-notice-box-shadow);
 
-  &__content { margin-right: rem(30px); }
+  &__content { margin-bottom: rem(20px); }
 
   &__btngroup {
     display: flex;
     flex-shrink: 0;
+
+    button { margin-right: rem(20px); }
   }
 
-  &.is-hidden {
-    visibility: hidden;
+  &__form {
+    margin-bottom: rem(20px);
+  }
+
+  &__field {
+    display: inline-flex;
+    position: relative;
+    align-items: center;
+    margin-right: rem(10px);
+    margin-bottom: rem(3px);
+  }
+
+  &__check {
+    display: block;
+    position: relative;
+    width: var(--vc-cookie-notice-check-size);
+    height: var(--vc-cookie-notice-check-size);
+    margin-right: var(--vc-cookie-notice-check-margin);
+    background-color: var(--vc-cookie-notice-check-background);
+    border: var(--vc-cookie-notice-check-border);
+    border-radius: var(--vc-cookie-notice-check-border-radius);
+
+    &::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: '';
+      background-color: var(--vc-cookie-notice-check-background-active);
+      border-radius: var(--vc-cookie-notice-check-border-radius);
+      transition: transform 50ms ease-out;
+      transform: scale3d(0, 0, 1);
+    }
+  }
+
+  &__input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
     opacity: 0;
-    transform: var(--cookie-notice-transform-hidden);
+
+    &:checked + .vc-cookie-notice__check::before {
+      transform: scale3d(0.8, 0.8, 1);
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+
+    &:disabled + .vc-cookie-notice__check::before {
+      opacity: 0.5;
+    }
+  }
+
+  &__labeltext {
+    display: block;
+  }
+
+  button {
+    cursor: pointer;
   }
 }
