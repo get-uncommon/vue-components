@@ -1,8 +1,6 @@
 <template>
   <div>
-    <cookie-notice
-      :fields="cookieFields"
-    >
+    <cookie-notice :fields="cookieFields">
       <template slot="content">
         <h5>Cookies</h5>
         <p>
@@ -17,6 +15,9 @@
         Settings
       </template>
     </cookie-notice>
+    <h2 class="js-toggle-cookie-settings">
+      Toggle cookie notice
+    </h2>
   </div>
 </template>
 

@@ -8,6 +8,10 @@ const ComponentLibrary = {
   },
 };
 
+// Export event bus for cookie notice
+export { CookieEvent } from './components/cookie-notice/event';
+
+// Export all components
 export default ComponentLibrary;
 
 if (typeof window !== 'undefined' && window.Vue) {

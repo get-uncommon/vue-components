@@ -3,24 +3,26 @@
     <div
       v-if="!isHidden"
       ref="container"
-      class="cookie-notice"
+      class="vc-cookie-notice"
     >
-      <div class="cookie-notice__content">
+      <div class="vc-cookie-notice__content">
         <slot name="content" />
       </div>
       <fade>
         <form
-          v-if="showSettings"
+          v-if="settings"
           ref="settingsForm"
-          class="cookie-notice__form"
+          class="vc-cookie-notice__form"
         >
           <label
             v-for="(option, optionIndex) in fields"
             :key="optionIndex"
+            class="vc-cookie-notice__field"
             :for="option.id"
           >
             <input
               :id="option.id"
+              class="vc-cookie-notice__input"
               type="checkbox"
               name="cookie_options[]"
               :value="option.id"
@@ -28,11 +30,14 @@
               :disabled="option.disabled"
               @input="onInput($event, optionIndex)"
             >
-            {{ option.label }}
+            <span class="vc-cookie-notice__check" />
+            <span class="vc-cookie-notice__labeltext">
+              {{ option.label }}
+            </span>
           </label>
         </form>
       </fade>
-      <div class="cookie-notice__btngroup">
+      <div class="vc-cookie-notice__btngroup">
         <button
           type="button"
           :class="buttonClassSettings"
@@ -53,8 +58,9 @@
 </template>
 
 <script>
-import Cookie from '@/utils/cookie';
-import Fade from '@/components/transition/Fade.vue';
+import { CookieEvent } from '../../library';
+import Cookie from '../../utils/cookie';
+import Fade from '../transition/Fade.vue';
 
 export default {
   name: 'CookieNotice',
@@ -98,7 +104,7 @@ export default {
 
   data() {
     return {
-      showSettings: false,
+      settings: false,
       options: null,
       isHidden: true,
       cookie: null,
@@ -117,7 +123,23 @@ export default {
     this.options = this.allOptions;
 
     // Hide cookie notice if 'saved'
-    this.$root.$on('saveCookie', () => this.hide());
+    CookieEvent.$on('saveCookie', () => this.hide());
+    CookieEvent.$on('showCookieNotice', () => {
+      this.show();
+      this.showSettings();
+    });
+
+    // Trigger settings, when cookies are already accepted.
+    const triggerSettingsNodes = document
+      .querySelectorAll('.js-toggle-cookie-settings, [href="#cookie-settings"]');
+
+    [...triggerSettingsNodes].forEach((item) => {
+      item.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        CookieEvent.$emit('showCookieNotice');
+      });
+    });
 
     this.setState();
   },
@@ -138,10 +160,23 @@ export default {
     },
 
     /**
+     * Show settings section
+     */
+    showSettings() {
+      this.settings = true;
+
+      const cookieArr = this.cookie.split(' ');
+      for (let i = 0; i < cookieArr.length; i += 1) {
+        const fields = this.fields.filter((field) => field.id === cookieArr[i]);
+        fields[0].checked = true;
+      }
+    },
+
+    /**
      * Toggle section for settings
      */
     toggleSettings() {
-      this.showSettings = !this.showSettings;
+      this.settings = !this.settings;
       this.updateOptions();
     },
 
@@ -150,10 +185,7 @@ export default {
      */
     setState() {
       this.cookie = Cookie.get(this.storageKey);
-
-      if (!this.cookie) {
-        this.show();
-      }
+      if (!this.cookie) this.show();
     },
 
     /**
@@ -161,8 +193,7 @@ export default {
      */
     onSave() {
       Cookie.set(this.storageKey, this.options.join(' '), { domain: this.cookieDomain });
-
-      this.$root.$emit('saveCookie', this.cookie);
+      CookieEvent.$emit('saveCookie', this.fields);
     },
 
     /**
