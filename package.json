@@ -1,7 +1,7 @@
 {
   "name": "@get-uncommon/vue-components",
   "description": "UNCOMMON Vue.js components",
-  "version": "0.0.2-beta",
+  "version": "0.0.3-beta",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",

@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.3-beta] - 2020-07-27
+### Added
+- `settingsEnabled` property added. Settings toggle is now optional
+
 ## [0.0.2-beta] - 2020-07-21
 ### Added
 - `CookieNotice` is now GDPR ready
@@ -20,3 +24,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [Unreleased]: https://github.com/get-uncommon/vue-components/compare/v0.0.2-beta...HEAD
 [0.0.1-beta]: https://github.com/get-uncommon/vue-components/releases/tag/v0.0.1-beta
 [0.0.2-beta]: https://github.com/get-uncommon/vue-components/releases/tag/v0.0.2-beta
+[0.0.3-beta]: https://github.com/get-uncommon/vue-components/releases/tag/v0.0.3-beta
