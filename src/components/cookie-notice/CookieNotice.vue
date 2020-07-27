@@ -10,7 +10,7 @@
       </div>
       <fade>
         <form
-          v-if="settings"
+          v-if="settings && settingsEnabled"
           ref="settingsForm"
           class="vc-cookie-notice__form"
         >
@@ -39,6 +39,7 @@
       </fade>
       <div class="vc-cookie-notice__btngroup">
         <button
+          v-if="settingsEnabled"
           type="button"
           :class="buttonClassSettings"
           @click.prevent="toggleSettings"
@@ -79,6 +80,10 @@ export default {
         },
         { id: 'statistics', label: 'Statistics' },
       ],
+    },
+    settingsEnabled: {
+      type: Boolean,
+      default: true,
     },
     storageKey: {
       type: String,
